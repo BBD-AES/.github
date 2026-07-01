@@ -4,8 +4,7 @@
 
 ## 관련 링크
 
-- **서비스 URL**: [https://console.inwoohub.com](https://console.inwoohub.com)
-- **발표 자료**: `ERP 현대.pdf`
+- **발표 자료**: https://drive.google.com/file/d/1uc9hi2_G3dYF5dylyfRnxTuGYOxpAKIn/view?usp=sharing
 
 ---
 
@@ -27,35 +26,8 @@
 <br/>
 
 ## 2. 프로젝트 아키텍처
+<img width="1200" height="700" alt="image" src="https://github.com/user-attachments/assets/f91c2f54-1080-4cfe-b43b-8aa65b3485a2" />
 
-```mermaid
-flowchart LR
-    Client[Web / Mobile Client] --> ALB[Application Load Balancer]
-    ALB --> Gateway[Gateway Service]
-
-    Gateway --> User[User Service]
-    Gateway --> Item[Item Service]
-    Gateway --> Inventory[Inventory Service]
-    Gateway --> Sales[Sales Service]
-    Gateway --> Procurement[Procurement Service]
-
-    User --> UserDB[(User RDS)]
-    Item --> ItemDB[(Item RDS)]
-    Inventory --> InventoryDB[(Inventory RDS)]
-    Sales --> SalesDB[(Sales RDS)]
-    Procurement --> ProcurementDB[(Procurement RDS)]
-
-    Item --> OpenSearch[(Amazon OpenSearch)]
-    Gateway --> Redis[(Amazon ElastiCache / Redis)]
-    User --> Redis
-
-    Procurement --> Kafka[Kafka]
-    Sales --> Kafka
-    Inventory --> Kafka
-    Item --> Kafka
-
-    User --> Keycloak[Keycloak]
-```
 
 ### 서버 구성
 
@@ -210,40 +182,3 @@ BBD ERP
 - 안전재고 미달 품목 대상 자동 발주 로직 구축
 
 <br/>
-
-## 11. 프로젝트 후기
-
-<details>
-<summary>김준성</summary>
-
-MSA ERP 시스템을 실무적인 주제로 좋은 팀원들과 개발할 수 있어서 유익하고 뜻깊은 시간이었습니다.
-
-</details>
-
-<details>
-<summary>황인우</summary>
-
-소외되는 사람 없이 모두가 열심히 하는 팀으로 함께해서 즐거웠습니다.
-
-</details>
-
-<details>
-<summary>최시원</summary>
-
-MSA 시스템을 구현하면서 각 서비스 간의 책임과 역할 분리에 대해서 고민해보는 유익한 시간이었습니다.
-
-</details>
-
-<details>
-<summary>임유리</summary>
-
-MSA와 ERP처럼 처음 접하는 시스템을 구현하며 서비스 간 경계와 책임을 기준으로 사고하는 경험을 할 수 있었습니다. 또한 하나의 서비스를 온전히 책임지며 협업해볼 수 있어서 큰 성장의 기회가 되었습니다.
-
-</details>
-
-<details>
-<summary>이다영</summary>
-
-맡은 분야에 최선을 다하는 팀원들과 대규모 프로젝트를 경험하며 개인적 개발 역량을 키우는 동시에 앞으로의 팀 프로젝트에 임하는 자세를 정립할 수 있었던 성장의 시간이었습니다.
-
-</details>
